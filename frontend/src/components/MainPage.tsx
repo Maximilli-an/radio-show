@@ -11,25 +11,33 @@ const MainPage: React.FC = () => {
 
     if (isLoading) return (
       <div>
-        <img src="../assets/loading-wheel.gif" alt="Loading Logo" />
+        <img src="https://media1.tenor.com/m/tga0EoNOH-8AAAAd/loading-load.gif"  alt="Loading Logo" />
         <h1>Loading available radio clips and shows</h1>
       </div>
       )      
 
     if (selectedCategory) return (
-      <div>
+      <>
+      <div className ='button-container'>
+        <button onClick={() => setSelectedCategory(null)}>Back to show selection</button>
+      </div>
+
+      <div className='card-container'>
         {data?.[selectedCategory]?.map((item: OnDemandItem) => (
           <Card key={item.title} {...item} />
         ))
         }
       </div>
+      </>
     )
   
     else return (
     <>
-      <div>
-        <button onClick={() => setSelectedCategory("highlights")}>Highlights</button>
-        <button onClick={() => setSelectedCategory("fullShows")}>Full Shows</button>
+      <div className="container">
+        <div className="button-container">
+          <button onClick={() => setSelectedCategory("highlights")}>Highlights</button>
+          <button onClick={() => setSelectedCategory("fullShows")}>Full Shows</button>
+        </div>
       </div>
     </>
     )

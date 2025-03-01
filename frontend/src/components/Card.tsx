@@ -3,7 +3,7 @@ import { OnDemandItem } from '../types/OnDemand'
 
 const Card: React.FC<OnDemandItem> = ({title, duration, lastPublished, image}) => {
   return (
-    <div>
+    <div className="card">
       <img src={image} alt={title} width="100" />
       <h2>{title}</h2>
       <p>Duration: {secondsToHms(duration)}</p>
