@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { useOnDemandContent } from '../api/fetchOnDemand'
 import { OnDemandItem } from '../types/OnDemand'
 import Card from './Card'
@@ -7,6 +8,12 @@ import Title from './Title'
 const MainPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<"highlights" | "fullShows" | null>(null)
   const {data, isLoading, error} = useOnDemandContent()
+
+  const navigate = useNavigate()
+
+      const handleCardClick = (item: OnDemandItem) => {
+      navigate('/player', { state: item})
+    }
   
     if (error) return <h2>The NINE Radio site is currently down for maintenance</h2>
 
@@ -17,17 +24,20 @@ const MainPage: React.FC = () => {
         <h1>Loading available radio clips and shows</h1>
       </div>
       )      
-
+    
     if (selectedCategory) return (
       <>
       <Title />
+      {/* not the same as HomeButton because we are using state based rendering for the page */}
       <div className ='button-container'>
         <button onClick={() => setSelectedCategory(null)}>Back to show selection</button>
       </div>
 
       <div className='card-container'>
         {data?.[selectedCategory]?.map((item: OnDemandItem) => (
+          <div onClick={() => handleCardClick(item)}>
           <Card key={item.title} {...item} />
+          </div>
         ))
         }
       </div>
@@ -45,6 +55,6 @@ const MainPage: React.FC = () => {
       </div>
     </>
     )
-    
+
 }
 export default MainPage
