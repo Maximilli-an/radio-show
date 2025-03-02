@@ -61,19 +61,22 @@ If I had more time or developers available, I would enhance the project in sever
 2. **Stronger Error Handling**
    - While I’ve covered basic failure cases, improving error handling is always valuable.
 
-3. **Containerization**
+3. **Extendability Considerations**
+   - As a general rule i've tried to keep things fairly decoupled and extendable, but i'm confident more could be done.
+
+4. **Containerization**
    - Use Docker to package the app for easier deployment and scalability.
 
-4. **Environment Variables**
+5. **Environment Variables**
    - Hide API endpoints and other sensitive data using `.env` files.
 
-5. **AWS Hosting & Deployment**
+6. **AWS Hosting & Deployment**
    - Implement AWS hosting with environment variables to remove dependency on localhost ports and enhance security.
 
-6. **Feature Enhancements**
+7. **Feature Enhancements**
    - Add user authentication and role-based view permissions.
 
-7. **Styling Improvements**
+8. **Styling Improvements**
    - UI/UX is not my expertise, but a more polished design would enhance usability.
 
 ---
