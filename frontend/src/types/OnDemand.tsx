@@ -3,7 +3,7 @@ export interface OnDemandItem {
     image: string,
     lastPublished: string,
     duration: number
-    //description, audioURL excluded for now
+    audioURL: string
 }
 
 export interface OnDemandPayload {
