@@ -1,6 +1,5 @@
 import React from 'react'
 import { OnDemandItem } from '../types/OnDemand'
-import { useNavigate } from 'react-router-dom'
 
 const Card: React.FC<OnDemandItem> = ({title, duration, lastPublished, image, audioURL}) => {
 

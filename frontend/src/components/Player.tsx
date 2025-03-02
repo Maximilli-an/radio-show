@@ -2,14 +2,14 @@ import { OnDemandItem } from "../types/OnDemand"
 import AudioPlayer  from 'react-h5-audio-player'
 import { useLocation} from "react-router-dom"
 import 'react-h5-audio-player/lib/styles.css';
-import { HomeButton } from "./homeButton";
+import { HomeButton } from "./HomeButton";
 
 const Player: React.FC<OnDemandItem> = () => {
     
     const location = useLocation()
     const onDemandProgram = location.state || {}
 
-    //data unmounted/user refresh not navigated from card click
+    //data unmounted case
     if (!onDemandProgram.audioURL) { return (
         <div>
             <p>This show is currently not playable</p>
