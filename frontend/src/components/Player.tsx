@@ -5,6 +5,8 @@ import PlaybackBar from "./PlaybackBar"
 const Player: React.FC<OnDemandItem> = ({title, audioURL, image}) => {
     const [playing, setPlaying] = useState<true | false>(false)
     const [playback, setPlayback] = useState<string>('00:00:00')
+    const [rewind, setRewind] = useState<true | false>(false)
+    const [fforward, setFforward] = useState<true | false>(false)
 
     return (
         <>
@@ -15,7 +17,7 @@ const Player: React.FC<OnDemandItem> = ({title, audioURL, image}) => {
             {playing ? <button onClick={handleStopAudio(audioURL)}>Stop</button> : <button onClick={handlePlayAudio(audioURL)}>Play</button>}
             </div>
             <div className="playback-bar">
-                <PlaybackBar audioState={playing} timestamp={playback}  />
+                <PlaybackBar audioState={playing} timestamp={playback} ffInput={fforward} rewInput={rewind}  />
             </div>
             <div className="fast-forward">
                 <button>Forward 30s</button>
