@@ -3,10 +3,9 @@ import { OnDemandItem } from '../types/OnDemand'
 import { useNavigate } from 'react-router-dom'
 
 const Card: React.FC<OnDemandItem> = ({title, duration, lastPublished, image, audioURL}) => {
-  const navigate = useNavigate()
 
   return (
-    <div className="card" onClick={() => navigate(`/player/${title}`, {state: {title, audioURL, image} })}>
+    <div className="card">
       <img src={image} alt={title} width="100" />
       <h2>{title}</h2>
       <p>Duration: {secondsToHms(duration)}</p>
