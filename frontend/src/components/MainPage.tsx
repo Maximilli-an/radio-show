@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useOnDemandContent } from '../api/fetchOnDemand'
 import { OnDemandItem } from '../types/OnDemand'
 import Card from './Card'
+import Title from './Title'
 
 const MainPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<"highlights" | "fullShows" | null>(null)
@@ -11,6 +12,7 @@ const MainPage: React.FC = () => {
 
     if (isLoading) return (
       <div>
+        <Title />
         <img src="https://media1.tenor.com/m/tga0EoNOH-8AAAAd/loading-load.gif"  alt="Loading Logo" />
         <h1>Loading available radio clips and shows</h1>
       </div>
@@ -18,6 +20,7 @@ const MainPage: React.FC = () => {
 
     if (selectedCategory) return (
       <>
+      <Title />
       <div className ='button-container'>
         <button onClick={() => setSelectedCategory(null)}>Back to show selection</button>
       </div>
@@ -33,6 +36,7 @@ const MainPage: React.FC = () => {
   
     else return (
     <>
+    <Title />
       <div className="container">
         <div className="button-container">
           <button onClick={() => setSelectedCategory("highlights")}>Highlights</button>
